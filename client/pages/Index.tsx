@@ -1,62 +1,317 @@
-import { DemoResponse } from "@shared/api";
-import { useEffect, useState } from "react";
+import { Phone, AlertCircle, MapPin, Users, Clock, Shield, Heart, Zap } from "lucide-react";
+import { useState } from "react";
 
 export default function Index() {
-  const [exampleFromServer, setExampleFromServer] = useState("");
-  // Fetch users on component mount
-  useEffect(() => {
-    fetchDemo();
-  }, []);
+  const [activeService, setActiveService] = useState<string | null>(null);
 
-  // Example of how to fetch data from the server (if needed)
-  const fetchDemo = async () => {
-    try {
-      const response = await fetch("/api/demo");
-      const data = (await response.json()) as DemoResponse;
-      setExampleFromServer(data.message);
-    } catch (error) {
-      console.error("Error fetching hello:", error);
-    }
+  const emergencyServices = [
+    {
+      id: "ambulance",
+      title: "Medical Emergency",
+      description: "Call for medical assistance",
+      icon: Heart,
+      color: "bg-red-50",
+      textColor: "text-red-600",
+      buttonColor: "bg-red-500 hover:bg-red-600",
+    },
+    {
+      id: "fire",
+      title: "Fire & Rescue",
+      description: "Report fire or rescue needed",
+      icon: Zap,
+      color: "bg-orange-50",
+      textColor: "text-orange-600",
+      buttonColor: "bg-orange-500 hover:bg-orange-600",
+    },
+    {
+      id: "police",
+      title: "Police",
+      description: "Report crime or safety threat",
+      icon: Shield,
+      color: "bg-blue-50",
+      textColor: "text-blue-600",
+      buttonColor: "bg-blue-500 hover:bg-blue-600",
+    },
+    {
+      id: "location",
+      title: "Share Location",
+      description: "Send your location to contacts",
+      icon: MapPin,
+      color: "bg-green-50",
+      textColor: "text-green-600",
+      buttonColor: "bg-green-500 hover:bg-green-600",
+    },
+  ];
+
+  const features = [
+    {
+      icon: Clock,
+      title: "Quick Response",
+      description: "Get help in seconds with our streamlined emergency system",
+    },
+    {
+      icon: AlertCircle,
+      title: "Real-time Alerts",
+      description: "Receive instant updates and emergency notifications",
+    },
+    {
+      icon: Users,
+      title: "Emergency Contacts",
+      description: "Manage and quickly reach your trusted emergency contacts",
+    },
+    {
+      icon: MapPin,
+      title: "Location Sharing",
+      description: "Share your location with responders and emergency contacts",
+    },
+  ];
+
+  const handleEmergencyCall = (serviceId: string) => {
+    setActiveService(serviceId);
+    // In a real app, this would trigger actual emergency services
+    setTimeout(() => setActiveService(null), 1500);
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-100 to-slate-200">
-      <div className="text-center">
-        {/* TODO: FUSION_GENERATION_APP_PLACEHOLDER replace everything here with the actual app! */}
-        <h1 className="text-2xl font-semibold text-slate-800 flex items-center justify-center gap-3">
-          <svg
-            className="animate-spin h-8 w-8 text-slate-400"
-            viewBox="0 0 50 50"
-          >
-            <circle
-              className="opacity-30"
-              cx="25"
-              cy="25"
-              r="20"
-              stroke="currentColor"
-              strokeWidth="5"
-              fill="none"
-            />
-            <circle
-              className="text-slate-600"
-              cx="25"
-              cy="25"
-              r="20"
-              stroke="currentColor"
-              strokeWidth="5"
-              fill="none"
-              strokeDasharray="100"
-              strokeDashoffset="75"
-            />
-          </svg>
-          Generating your app...
-        </h1>
-        <p className="mt-4 text-slate-600 max-w-md">
-          Watch the chat on the left for updates that might need your attention
-          to finish generating
-        </p>
-        <p className="mt-4 hidden max-w-md">{exampleFromServer}</p>
-      </div>
+    <div className="min-h-screen bg-white">
+      {/* Header */}
+      <header className="sticky top-0 z-50 bg-white border-b border-slate-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 bg-gradient-to-br from-emergency-blue to-emergency-blue-dark rounded-lg flex items-center justify-center">
+              <AlertCircle className="w-6 h-6 text-white" />
+            </div>
+            <span className="text-xl font-bold text-slate-900">SafeAlert</span>
+          </div>
+          <nav className="hidden md:flex items-center gap-8">
+            <a href="#" className="text-slate-600 hover:text-slate-900 font-medium">Services</a>
+            <a href="#" className="text-slate-600 hover:text-slate-900 font-medium">Resources</a>
+            <a href="#" className="text-slate-600 hover:text-slate-900 font-medium">Contacts</a>
+            <button className="btn-primary">Sign In</button>
+          </nav>
+        </div>
+      </header>
+
+      {/* Hero Section */}
+      <section className="gradient-emergency py-16 md:py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h1 className="mb-4 text-slate-900">
+              Emergency Help at Your Fingertips
+            </h1>
+            <p className="text-lg md:text-xl text-slate-600 max-w-2xl mx-auto mb-8">
+              Fast, reliable access to emergency services and support. Get help when you need it most with just a tap.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <button className="btn-primary text-lg py-4 px-8 flex items-center justify-center gap-2">
+                <Phone className="w-6 h-6" />
+                Call Emergency (911)
+              </button>
+              <button className="btn-secondary text-lg py-4 px-8">
+                Get Started
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Quick Actions */}
+      <section className="py-16 md:py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-center mb-12 text-slate-900">
+            Emergency Services
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {emergencyServices.map((service) => {
+              const Icon = service.icon;
+              return (
+                <div
+                  key={service.id}
+                  className={`card-modern p-6 cursor-pointer transition-all duration-300 ${
+                    activeService === service.id
+                      ? "ring-2 ring-emergency-blue scale-105"
+                      : ""
+                  }`}
+                >
+                  <div className={`${service.color} w-14 h-14 rounded-lg flex items-center justify-center mb-4`}>
+                    <Icon className={`w-7 h-7 ${service.textColor}`} />
+                  </div>
+                  <h3 className="font-semibold text-slate-900 mb-2">
+                    {service.title}
+                  </h3>
+                  <p className="text-sm text-slate-600 mb-4">
+                    {service.description}
+                  </p>
+                  <button
+                    onClick={() => handleEmergencyCall(service.id)}
+                    className={`w-full ${service.buttonColor} text-white py-2 px-4 rounded-lg font-semibold transition-colors duration-200`}
+                  >
+                    {activeService === service.id ? "Calling..." : "Call Now"}
+                  </button>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Features */}
+      <section className="py-16 md:py-20 bg-slate-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="mb-4 text-slate-900">
+              Why Choose SafeAlert
+            </h2>
+            <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+              Designed with your safety in mind, providing reliable emergency support
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {features.map((feature, index) => {
+              const Icon = feature.icon;
+              return (
+                <div key={index} className="text-center">
+                  <div className="inline-flex items-center justify-center w-12 h-12 bg-emergency-blue text-white rounded-lg mb-4">
+                    <Icon className="w-6 h-6" />
+                  </div>
+                  <h3 className="text-lg font-semibold text-slate-900 mb-2">
+                    {feature.title}
+                  </h3>
+                  <p className="text-slate-600">
+                    {feature.description}
+                  </p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Emergency Contacts */}
+      <section className="py-16 md:py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="mb-6 text-slate-900">
+                Manage Emergency Contacts
+              </h2>
+              <p className="text-lg text-slate-600 mb-6">
+                Keep your trusted contacts updated and instantly reachable when you need them. Set up your emergency network in seconds.
+              </p>
+              <ul className="space-y-4 mb-8">
+                {["Add up to 10 emergency contacts", "One-tap calling and messaging", "Auto-share location with contacts", "24/7 availability"].map((item, index) => (
+                  <li key={index} className="flex items-center gap-3">
+                    <div className="w-6 h-6 bg-emergency-blue rounded-full flex items-center justify-center flex-shrink-0">
+                      <span className="text-white text-sm font-bold">✓</span>
+                    </div>
+                    <span className="text-slate-700">{item}</span>
+                  </li>
+                ))}
+              </ul>
+              <button className="btn-primary">
+                Set Up Contacts Now
+              </button>
+            </div>
+            <div className="bg-gradient-to-br from-emergency-blue-light to-slate-50 rounded-2xl p-8 card-modern border-0">
+              <div className="space-y-4">
+                <div className="bg-white rounded-lg p-4 flex items-center gap-3">
+                  <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
+                    <Users className="w-5 h-5 text-emergency-blue" />
+                  </div>
+                  <div>
+                    <p className="font-semibold text-slate-900">Mom</p>
+                    <p className="text-sm text-slate-600">+1 (555) 123-4567</p>
+                  </div>
+                </div>
+                <div className="bg-white rounded-lg p-4 flex items-center gap-3">
+                  <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
+                    <Users className="w-5 h-5 text-emergency-blue" />
+                  </div>
+                  <div>
+                    <p className="font-semibold text-slate-900">Doctor</p>
+                    <p className="text-sm text-slate-600">+1 (555) 987-6543</p>
+                  </div>
+                </div>
+                <div className="bg-white rounded-lg p-4 flex items-center gap-3">
+                  <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
+                    <Users className="w-5 h-5 text-emergency-blue" />
+                  </div>
+                  <div>
+                    <p className="font-semibold text-slate-900">Best Friend</p>
+                    <p className="text-sm text-slate-600">+1 (555) 234-5678</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-16 md:py-20 bg-gradient-to-r from-emergency-blue to-emergency-blue-dark">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-white mb-6">
+            Always Ready for Emergencies
+          </h2>
+          <p className="text-xl text-blue-100 max-w-2xl mx-auto mb-8">
+            Get peace of mind knowing help is always just one tap away. Download SafeAlert today.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <button className="bg-white text-emergency-blue px-8 py-3 rounded-lg font-semibold hover:bg-slate-100 transition-colors">
+              Download iOS
+            </button>
+            <button className="bg-white text-emergency-blue px-8 py-3 rounded-lg font-semibold hover:bg-slate-100 transition-colors">
+              Download Android
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-slate-900 text-slate-300 py-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+            <div>
+              <div className="flex items-center gap-2 mb-4">
+                <div className="w-8 h-8 bg-emergency-blue rounded-lg flex items-center justify-center">
+                  <AlertCircle className="w-5 h-5 text-white" />
+                </div>
+                <span className="text-white font-bold">SafeAlert</span>
+              </div>
+              <p className="text-sm">Your trusted emergency response partner.</p>
+            </div>
+            <div>
+              <h4 className="text-white font-semibold mb-4">Services</h4>
+              <ul className="space-y-2 text-sm">
+                <li><a href="#" className="hover:text-white transition-colors">Emergency Call</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Location Share</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Contact Manager</a></li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="text-white font-semibold mb-4">Company</h4>
+              <ul className="space-y-2 text-sm">
+                <li><a href="#" className="hover:text-white transition-colors">About Us</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Privacy Policy</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Terms of Service</a></li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="text-white font-semibold mb-4">Support</h4>
+              <ul className="space-y-2 text-sm">
+                <li><a href="#" className="hover:text-white transition-colors">Help Center</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Contact Support</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">FAQ</a></li>
+              </ul>
+            </div>
+          </div>
+          <div className="border-t border-slate-700 pt-8">
+            <p className="text-center text-sm text-slate-400">
+              © 2024 SafeAlert. All rights reserved. In case of emergency, always call your local emergency number (911 in the US).
+            </p>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
