@@ -113,6 +113,18 @@
     @apply bg-background text-foreground;
   }
 
+  h1 {
+    @apply text-4xl md:text-5xl font-bold tracking-tight;
+  }
+
+  h2 {
+    @apply text-3xl md:text-4xl font-bold tracking-tight;
+  }
+
+  h3 {
+    @apply text-xl md:text-2xl font-semibold;
+  }
+
   :where(p, span, li, h1, h2, h3, h4, h5, h6, a, button, label, td, th) {
     overflow-wrap: anywhere;
     word-break: break-word;
@@ -122,5 +134,27 @@
   code {
     overflow-x: auto;
     white-space: pre;
+  }
+}
+
+@layer components {
+  .btn-emergency {
+    @apply px-6 py-3 rounded-lg font-semibold transition-colors duration-200;
+  }
+
+  .btn-primary {
+    @apply btn-emergency bg-emergency-blue text-white hover:bg-emergency-blue-dark;
+  }
+
+  .btn-secondary {
+    @apply btn-emergency border-2 border-emergency-blue text-emergency-blue hover:bg-emergency-blue-light;
+  }
+
+  .card-modern {
+    @apply rounded-xl border border-border bg-white shadow-sm hover:shadow-md transition-shadow duration-200;
+  }
+
+  .gradient-emergency {
+    @apply bg-gradient-to-br from-emergency-blue-light via-white to-slate-50;
   }
 }
