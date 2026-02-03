@@ -132,19 +132,19 @@ export default function Index() {
   };
 
   const handleShareLocation = () => {
-    setActiveService("location");
+    setOngoingCall("location");
+    setCallNotes("");
+    setCallDuration(0);
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         (position) => {
           const { latitude, longitude } = position.coords;
-          alert(
-            `Location shared! Coordinates: ${latitude.toFixed(4)}, ${longitude.toFixed(4)}`,
+          setCallNotes(
+            `Location shared: ${latitude.toFixed(4)}, ${longitude.toFixed(4)}`,
           );
-          setTimeout(() => setActiveService(null), 1500);
         },
         (error) => {
-          alert("Location access denied. Please enable location permissions.");
-          setTimeout(() => setActiveService(null), 1500);
+          setCallNotes("Location access denied. Please enable location permissions.");
         },
       );
     }
