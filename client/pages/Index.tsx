@@ -293,7 +293,7 @@ export default function Index() {
                   </li>
                 ))}
               </ul>
-              <button className="btn-primary">
+              <button onClick={handleSetUpContacts} className="btn-primary">
                 Set Up Contacts Now
               </button>
             </div>
