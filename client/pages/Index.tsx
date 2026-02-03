@@ -324,7 +324,7 @@ export default function Index() {
           </div>
           <div className="border-t border-slate-700 pt-8">
             <p className="text-center text-sm text-slate-400">
-              © 2024 SafeAlert. All rights reserved. In case of emergency, always call your local emergency number (911 in the US).
+              © 2024 SafeAlert. All rights reserved. In case of emergency in Kenya, always call 999 or +254 20 2222222. SafeAlert is a complementary service.
             </p>
           </div>
         </div>
