@@ -9,7 +9,7 @@ import {
   Zap,
   X,
 } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function Index() {
   const [activeService, setActiveService] = useState<string | null>(null);
