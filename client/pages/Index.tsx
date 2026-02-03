@@ -227,7 +227,7 @@ export default function Index() {
                     </a>
                   ) : (
                     <button
-                      onClick={() => handleEmergencyCall(service.id)}
+                      onClick={handleShareLocation}
                       className={`w-full ${service.buttonColor} text-white py-2 px-4 rounded-lg font-semibold transition-colors duration-200`}
                     >
                       {activeService === service.id ? "Sharing..." : "Share Now"}
