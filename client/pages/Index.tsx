@@ -288,19 +288,18 @@ export default function Index() {
                     {service.number}
                   </p>
                   {service.id !== "location" ? (
-                    <a
-                      href={`tel:${service.number.replace(/\s/g, "")}`}
+                    <button
                       onClick={() => handleEmergencyCall(service.id)}
-                      className={`block w-full ${service.buttonColor} text-white py-2 px-4 rounded-lg font-semibold transition-colors duration-200 text-center no-underline`}
+                      className={`block w-full ${service.buttonColor} text-white py-2 px-4 rounded-lg font-semibold transition-colors duration-200 text-center`}
                     >
-                      {activeService === service.id ? "Calling..." : "Call Now"}
-                    </a>
+                      {ongoingCall === service.id ? "Calling..." : "Call Now"}
+                    </button>
                   ) : (
                     <button
                       onClick={handleShareLocation}
                       className={`w-full ${service.buttonColor} text-white py-2 px-4 rounded-lg font-semibold transition-colors duration-200`}
                     >
-                      {activeService === service.id
+                      {ongoingCall === service.id
                         ? "Sharing..."
                         : "Share Now"}
                     </button>
