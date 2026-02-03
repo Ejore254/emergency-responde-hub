@@ -148,7 +148,9 @@ export default function Index() {
           );
         },
         (error) => {
-          setCallNotes("Location access denied. Please enable location permissions.");
+          setCallNotes(
+            "Location access denied. Please enable location permissions.",
+          );
         },
       );
     }
@@ -303,9 +305,7 @@ export default function Index() {
                       onClick={handleShareLocation}
                       className={`w-full ${service.buttonColor} text-white py-2 px-4 rounded-lg font-semibold transition-colors duration-200`}
                     >
-                      {ongoingCall === service.id
-                        ? "Sharing..."
-                        : "Share Now"}
+                      {ongoingCall === service.id ? "Sharing..." : "Share Now"}
                     </button>
                   )}
                 </div>
@@ -529,7 +529,9 @@ export default function Index() {
                 <div className="inline-flex items-center justify-center w-16 h-16 bg-white/20 rounded-full mb-4">
                   <Phone className="w-8 h-8 text-white animate-pulse" />
                 </div>
-                <h2 className="text-2xl font-bold mb-2">Emergency Call Active</h2>
+                <h2 className="text-2xl font-bold mb-2">
+                  Emergency Call Active
+                </h2>
                 <p className="text-white/90 mb-4">
                   {emergencyServices.find((s) => s.id === ongoingCall)?.title}
                 </p>
