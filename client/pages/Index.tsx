@@ -145,10 +145,21 @@ export default function Index() {
             <span className="text-xl font-bold text-slate-900">SafeAlert</span>
           </div>
           <nav className="hidden md:flex items-center gap-8">
-            <a href="#" className="text-slate-600 hover:text-slate-900 font-medium">Services</a>
-            <a href="#" className="text-slate-600 hover:text-slate-900 font-medium">Resources</a>
-            <a href="#" className="text-slate-600 hover:text-slate-900 font-medium">Contacts</a>
-            <button className="btn-primary">Sign In</button>
+            <a href="#services" className="text-slate-600 hover:text-slate-900 font-medium">Services</a>
+            <a href="#resources" className="text-slate-600 hover:text-slate-900 font-medium">Resources</a>
+            <a href="#contacts" className="text-slate-600 hover:text-slate-900 font-medium">Contacts</a>
+            {isSignedIn ? (
+              <div className="flex items-center gap-4">
+                <span className="text-slate-600 text-sm">{userEmail}</span>
+                <button onClick={handleSignOut} className="btn-secondary py-2 px-4">
+                  Sign Out
+                </button>
+              </div>
+            ) : (
+              <button onClick={() => setShowSignIn(true)} className="btn-primary">
+                Sign In
+              </button>
+            )}
           </nav>
         </div>
       </header>
