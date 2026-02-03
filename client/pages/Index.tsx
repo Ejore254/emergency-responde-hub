@@ -143,15 +143,28 @@ export default function Index() {
                   <h3 className="font-semibold text-slate-900 mb-2">
                     {service.title}
                   </h3>
-                  <p className="text-sm text-slate-600 mb-4">
+                  <p className="text-sm text-slate-600 mb-1">
                     {service.description}
                   </p>
-                  <button
-                    onClick={() => handleEmergencyCall(service.id)}
-                    className={`w-full ${service.buttonColor} text-white py-2 px-4 rounded-lg font-semibold transition-colors duration-200`}
-                  >
-                    {activeService === service.id ? "Calling..." : "Call Now"}
-                  </button>
+                  <p className="text-sm font-semibold text-slate-900 mb-4">
+                    {service.number}
+                  </p>
+                  {service.id !== "location" ? (
+                    <a
+                      href={`tel:${service.number.replace(/\s/g, "")}`}
+                      onClick={() => handleEmergencyCall(service.id)}
+                      className={`block w-full ${service.buttonColor} text-white py-2 px-4 rounded-lg font-semibold transition-colors duration-200 text-center no-underline`}
+                    >
+                      {activeService === service.id ? "Calling..." : "Call Now"}
+                    </a>
+                  ) : (
+                    <button
+                      onClick={() => handleEmergencyCall(service.id)}
+                      className={`w-full ${service.buttonColor} text-white py-2 px-4 rounded-lg font-semibold transition-colors duration-200`}
+                    >
+                      {activeService === service.id ? "Sharing..." : "Share Now"}
+                    </button>
+                  )}
                 </div>
               );
             })}
