@@ -59,30 +59,26 @@ SafeAlert is a modern, production-ready web application designed to provide quic
 
 ### Prerequisites
 
-- **Node.js** 18+
+- **Node.js** 18+ 
 - **pnpm** 10.14.0+ (or npm/yarn)
 
 ### Installation
 
 1. **Clone the repository** (if using from git)
-
    ```bash
    git clone <repository-url>
    cd safealert
    ```
 
 2. **Install dependencies**
-
    ```bash
    pnpm install
    ```
 
 3. **Start development server**
-
    ```bash
    pnpm dev
    ```
-
    The app will be available at `http://localhost:8080`
 
 4. **Open in your browser**
@@ -119,7 +115,6 @@ SafeAlert uses a carefully crafted color scheme optimized for emergency applicat
 ### Components
 
 The app includes pre-built UI components in `client/components/ui/` (Radix UI based):
-
 - Buttons, Cards, Inputs
 - Dialogs, Modals, Dropdowns
 - Tooltips, Popovers, Tabs
@@ -134,9 +129,7 @@ The app includes pre-built UI components in `client/components/ui/` (Radix UI ba
 ## Pages 📄
 
 ### Home Page (`/`)
-
 The main landing page featuring:
-
 - Emergency services quick access
 - Key features & benefits
 - Emergency contacts management preview
@@ -144,7 +137,6 @@ The main landing page featuring:
 - Professional footer with links
 
 ### 404 Page (`*`)
-
 User-friendly error page for non-existent routes
 
 ## Theming 🌓
@@ -161,7 +153,7 @@ Example of calling backend endpoints:
 
 ```typescript
 // Example API call
-const response = await fetch("/api/demo");
+const response = await fetch('/api/demo');
 const data = await response.json();
 ```
 
@@ -184,13 +176,11 @@ See `AGENTS.md` for detailed backend setup instructions.
 ## Responsive Design 📱
 
 The app is fully responsive:
-
 - **Mobile** (< 640px) - Touch-friendly, single column
 - **Tablet** (640px - 1024px) - Optimized spacing, 2-3 columns
 - **Desktop** (> 1024px) - Full featured layout, 4+ columns
 
 Test responsiveness:
-
 ```bash
 # Firefox/Chrome DevTools
 F12 → Toggle device toolbar (Ctrl+Shift+M)
@@ -208,20 +198,17 @@ pnpm start
 ### Hosting Options
 
 #### Netlify
-
 1. Connect your repo in Netlify dashboard
 2. Set build command: `pnpm build`
 3. Set publish directory: `dist/spa`
 4. Deploy!
 
 #### Vercel
-
 1. Import project in Vercel dashboard
 2. Auto-detects build settings
 3. Deploy with one click!
 
 #### Docker
-
 ```dockerfile
 FROM node:18-alpine
 WORKDIR /app
@@ -264,7 +251,6 @@ CMD ["pnpm", "start"]
 ## Troubleshooting 🔧
 
 ### Port Already in Use
-
 ```bash
 # Change port in vite.config.ts
 export default {
@@ -275,7 +261,6 @@ export default {
 ```
 
 ### Dependencies Issue
-
 ```bash
 # Clear cache and reinstall
 rm -rf node_modules pnpm-lock.yaml
@@ -283,7 +268,6 @@ pnpm install
 ```
 
 ### Build Errors
-
 ```bash
 # Check TypeScript
 pnpm typecheck
@@ -299,22 +283,33 @@ MIT License - see LICENSE file for details
 ## Support 💬
 
 For issues, questions, or feature requests:
-
 1. Check existing documentation
 2. Review similar implementations in the codebase
 3. Create an issue with detailed reproduction steps
 
+## Kenya-Specific Features 🇰🇪
+
+SafeAlert is tailored for Kenya with:
+
+### Emergency Numbers
+- **Police Emergency**: +254 20 2222222 or 999
+- **Ambulance/Medical**: +254 20 2245000
+- **Fire Brigade**: +254 20 2222222
+
+### Kenyan Contacts
+- All contact numbers use +254 country code (Kenya)
+- Emergency contacts pre-configured with Kenyan phone formats
+- Location sharing optimized for Kenya's geography
+
 ## Important Notice 🚨
 
-**SafeAlert is a demonstration application.** In real emergencies, always call your local emergency number directly:
+**SafeAlert is a demonstration application.** In real emergencies in Kenya, always call directly:
+- **Police/Fire**: 999 or +254 20 2222222
+- **Medical Emergency**: +254 20 2245000
+- **Tourist Police**: +254 20 2987000
 
-- **USA**: 911
-- **Europe**: 112
-- **UK**: 999
-- **Other**: Check your local emergency number
-
-This app is designed to complement, not replace, direct emergency communication.
+This app is designed to complement, not replace, direct emergency communication. In life-threatening situations, always call 999 immediately.
 
 ---
 
-Built with ❤️ for safety and reliability. Stay safe!
+Built with ❤️ for safety and reliability in Kenya. Stay safe!
