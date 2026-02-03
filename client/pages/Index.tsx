@@ -17,6 +17,9 @@ export default function Index() {
   const [isSignedIn, setIsSignedIn] = useState(false);
   const [userEmail, setUserEmail] = useState("");
   const [showShareModal, setShowShareModal] = useState(false);
+  const [ongoingCall, setOngoingCall] = useState<string | null>(null);
+  const [callNotes, setCallNotes] = useState("");
+  const [callDuration, setCallDuration] = useState(0);
 
   const emergencyServices = [
     {
