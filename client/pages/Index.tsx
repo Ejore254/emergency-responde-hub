@@ -89,8 +89,31 @@ export default function Index() {
 
   const handleEmergencyCall = (serviceId: string) => {
     setActiveService(serviceId);
-    // In a real app, this would trigger actual emergency services
-    setTimeout(() => setActiveService(null), 1500);
+    setOngoingCall(serviceId);
+    setCallNotes("");
+    setCallDuration(0);
+    // Start call timer
+    let elapsed = 0;
+    const timer = setInterval(() => {
+      elapsed++;
+      setCallDuration(elapsed);
+    }, 1000);
+
+    // Cleanup timer when call ends
+    return () => clearInterval(timer);
+  };
+
+  const handleEndCall = () => {
+    setOngoingCall(null);
+    setCallNotes("");
+    setCallDuration(0);
+    setActiveService(null);
+  };
+
+  const formatCallDuration = (seconds: number) => {
+    const mins = Math.floor(seconds / 60);
+    const secs = seconds % 60;
+    return `${mins.toString().padStart(2, "0")}:${secs.toString().padStart(2, "0")}`;
   };
 
   const handleSignIn = (e: React.FormEvent) => {
