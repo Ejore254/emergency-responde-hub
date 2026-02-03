@@ -107,10 +107,10 @@ export default function Index() {
               Fast, reliable access to emergency services and support. Get help when you need it most with just a tap.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="btn-primary text-lg py-4 px-8 flex items-center justify-center gap-2">
-                <Phone className="w-6 h-6" />
-                Call Emergency (911)
-              </button>
+              <a href="tel:+254202222222" className="btn-primary text-lg py-4 px-8 flex items-center justify-center gap-2 no-underline">
+              <Phone className="w-6 h-6" />
+              Call Emergency (999)
+            </a>
               <button className="btn-secondary text-lg py-4 px-8">
                 Get Started
               </button>
