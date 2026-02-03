@@ -105,15 +105,6 @@ export default function Index() {
     setOngoingCall(serviceId);
     setCallNotes("");
     setCallDuration(0);
-    // Start call timer
-    let elapsed = 0;
-    const timer = setInterval(() => {
-      elapsed++;
-      setCallDuration(elapsed);
-    }, 1000);
-
-    // Cleanup timer when call ends
-    return () => clearInterval(timer);
   };
 
   const handleEndCall = () => {
