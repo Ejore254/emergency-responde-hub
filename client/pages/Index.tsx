@@ -1,4 +1,14 @@
-import { Phone, AlertCircle, MapPin, Users, Clock, Shield, Heart, Zap, X } from "lucide-react";
+import {
+  Phone,
+  AlertCircle,
+  MapPin,
+  Users,
+  Clock,
+  Shield,
+  Heart,
+  Zap,
+  X,
+} from "lucide-react";
 import { useState } from "react";
 
 export default function Index() {
@@ -101,13 +111,15 @@ export default function Index() {
       navigator.geolocation.getCurrentPosition(
         (position) => {
           const { latitude, longitude } = position.coords;
-          alert(`Location shared! Coordinates: ${latitude.toFixed(4)}, ${longitude.toFixed(4)}`);
+          alert(
+            `Location shared! Coordinates: ${latitude.toFixed(4)}, ${longitude.toFixed(4)}`,
+          );
           setTimeout(() => setActiveService(null), 1500);
         },
         (error) => {
           alert("Location access denied. Please enable location permissions.");
           setTimeout(() => setActiveService(null), 1500);
-        }
+        },
       );
     }
   };
@@ -130,7 +142,9 @@ export default function Index() {
   };
 
   const handleDownloadApp = (platform: string) => {
-    alert(`Redirecting to download SafeAlert for ${platform}...\n\n(In production, this would link to the app store)`);
+    alert(
+      `Redirecting to download SafeAlert for ${platform}...\n\n(In production, this would link to the app store)`,
+    );
   };
 
   return (
@@ -145,18 +159,39 @@ export default function Index() {
             <span className="text-xl font-bold text-slate-900">SafeAlert</span>
           </div>
           <nav className="hidden md:flex items-center gap-8">
-            <a href="#services" className="text-slate-600 hover:text-slate-900 font-medium">Services</a>
-            <a href="#resources" className="text-slate-600 hover:text-slate-900 font-medium">Resources</a>
-            <a href="#contacts" className="text-slate-600 hover:text-slate-900 font-medium">Contacts</a>
+            <a
+              href="#services"
+              className="text-slate-600 hover:text-slate-900 font-medium"
+            >
+              Services
+            </a>
+            <a
+              href="#resources"
+              className="text-slate-600 hover:text-slate-900 font-medium"
+            >
+              Resources
+            </a>
+            <a
+              href="#contacts"
+              className="text-slate-600 hover:text-slate-900 font-medium"
+            >
+              Contacts
+            </a>
             {isSignedIn ? (
               <div className="flex items-center gap-4">
                 <span className="text-slate-600 text-sm">{userEmail}</span>
-                <button onClick={handleSignOut} className="btn-secondary py-2 px-4">
+                <button
+                  onClick={handleSignOut}
+                  className="btn-secondary py-2 px-4"
+                >
                   Sign Out
                 </button>
               </div>
             ) : (
-              <button onClick={() => setShowSignIn(true)} className="btn-primary">
+              <button
+                onClick={() => setShowSignIn(true)}
+                className="btn-primary"
+              >
                 Sign In
               </button>
             )}
@@ -172,14 +207,21 @@ export default function Index() {
               Emergency Help at Your Fingertips
             </h1>
             <p className="text-lg md:text-xl text-slate-600 max-w-2xl mx-auto mb-8">
-              Fast, reliable access to emergency services and support. Get help when you need it most with just a tap.
+              Fast, reliable access to emergency services and support. Get help
+              when you need it most with just a tap.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="tel:+254202222222" className="btn-primary text-lg py-4 px-8 flex items-center justify-center gap-2 no-underline">
+              <a
+                href="tel:+254202222222"
+                className="btn-primary text-lg py-4 px-8 flex items-center justify-center gap-2 no-underline"
+              >
                 <Phone className="w-6 h-6" />
                 Call Emergency (999)
               </a>
-              <button onClick={handleGetStarted} className="btn-secondary text-lg py-4 px-8">
+              <button
+                onClick={handleGetStarted}
+                className="btn-secondary text-lg py-4 px-8"
+              >
                 Get Started
               </button>
             </div>
@@ -205,7 +247,9 @@ export default function Index() {
                       : ""
                   }`}
                 >
-                  <div className={`${service.color} w-14 h-14 rounded-lg flex items-center justify-center mb-4`}>
+                  <div
+                    className={`${service.color} w-14 h-14 rounded-lg flex items-center justify-center mb-4`}
+                  >
                     <Icon className={`w-7 h-7 ${service.textColor}`} />
                   </div>
                   <h3 className="font-semibold text-slate-900 mb-2">
@@ -230,7 +274,9 @@ export default function Index() {
                       onClick={handleShareLocation}
                       className={`w-full ${service.buttonColor} text-white py-2 px-4 rounded-lg font-semibold transition-colors duration-200`}
                     >
-                      {activeService === service.id ? "Sharing..." : "Share Now"}
+                      {activeService === service.id
+                        ? "Sharing..."
+                        : "Share Now"}
                     </button>
                   )}
                 </div>
@@ -244,11 +290,10 @@ export default function Index() {
       <section className="py-16 md:py-20 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="mb-4 text-slate-900">
-              Why Choose SafeAlert
-            </h2>
+            <h2 className="mb-4 text-slate-900">Why Choose SafeAlert</h2>
             <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-              Designed with your safety in mind, providing reliable emergency support
+              Designed with your safety in mind, providing reliable emergency
+              support
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -262,9 +307,7 @@ export default function Index() {
                   <h3 className="text-lg font-semibold text-slate-900 mb-2">
                     {feature.title}
                   </h3>
-                  <p className="text-slate-600">
-                    {feature.description}
-                  </p>
+                  <p className="text-slate-600">{feature.description}</p>
                 </div>
               );
             })}
@@ -277,14 +320,18 @@ export default function Index() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="mb-6 text-slate-900">
-                Manage Emergency Contacts
-              </h2>
+              <h2 className="mb-6 text-slate-900">Manage Emergency Contacts</h2>
               <p className="text-lg text-slate-600 mb-6">
-                Keep your trusted contacts updated and instantly reachable when you need them. Set up your emergency network in seconds.
+                Keep your trusted contacts updated and instantly reachable when
+                you need them. Set up your emergency network in seconds.
               </p>
               <ul className="space-y-4 mb-8">
-                {["Add up to 10 emergency contacts", "One-tap calling and messaging", "Auto-share location with contacts", "24/7 availability"].map((item, index) => (
+                {[
+                  "Add up to 10 emergency contacts",
+                  "One-tap calling and messaging",
+                  "Auto-share location with contacts",
+                  "24/7 availability",
+                ].map((item, index) => (
                   <li key={index} className="flex items-center gap-3">
                     <div className="w-6 h-6 bg-emergency-blue rounded-full flex items-center justify-center flex-shrink-0">
                       <span className="text-white text-sm font-bold">✓</span>
@@ -335,17 +382,22 @@ export default function Index() {
       {/* CTA Section */}
       <section className="py-16 md:py-20 bg-gradient-to-r from-emergency-blue to-emergency-blue-dark">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-white mb-6">
-            Always Ready for Emergencies
-          </h2>
+          <h2 className="text-white mb-6">Always Ready for Emergencies</h2>
           <p className="text-xl text-blue-100 max-w-2xl mx-auto mb-8">
-            Get peace of mind knowing help is always just one tap away. Download SafeAlert today.
+            Get peace of mind knowing help is always just one tap away. Download
+            SafeAlert today.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button onClick={() => handleDownloadApp("iOS")} className="bg-white text-emergency-blue px-8 py-3 rounded-lg font-semibold hover:bg-slate-100 transition-colors">
+            <button
+              onClick={() => handleDownloadApp("iOS")}
+              className="bg-white text-emergency-blue px-8 py-3 rounded-lg font-semibold hover:bg-slate-100 transition-colors"
+            >
               Download iOS
             </button>
-            <button onClick={() => handleDownloadApp("Android")} className="bg-white text-emergency-blue px-8 py-3 rounded-lg font-semibold hover:bg-slate-100 transition-colors">
+            <button
+              onClick={() => handleDownloadApp("Android")}
+              className="bg-white text-emergency-blue px-8 py-3 rounded-lg font-semibold hover:bg-slate-100 transition-colors"
+            >
               Download Android
             </button>
           </div>
@@ -363,36 +415,76 @@ export default function Index() {
                 </div>
                 <span className="text-white font-bold">SafeAlert</span>
               </div>
-              <p className="text-sm">Your trusted emergency response partner.</p>
+              <p className="text-sm">
+                Your trusted emergency response partner.
+              </p>
             </div>
             <div>
               <h4 className="text-white font-semibold mb-4">Services</h4>
               <ul className="space-y-2 text-sm">
-                <li><a href="#" className="hover:text-white transition-colors">Emergency Call</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Location Share</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Contact Manager</a></li>
+                <li>
+                  <a href="#" className="hover:text-white transition-colors">
+                    Emergency Call
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-white transition-colors">
+                    Location Share
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-white transition-colors">
+                    Contact Manager
+                  </a>
+                </li>
               </ul>
             </div>
             <div>
               <h4 className="text-white font-semibold mb-4">Company</h4>
               <ul className="space-y-2 text-sm">
-                <li><a href="#" className="hover:text-white transition-colors">About Us</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Privacy Policy</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Terms of Service</a></li>
+                <li>
+                  <a href="#" className="hover:text-white transition-colors">
+                    About Us
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-white transition-colors">
+                    Privacy Policy
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-white transition-colors">
+                    Terms of Service
+                  </a>
+                </li>
               </ul>
             </div>
             <div>
               <h4 className="text-white font-semibold mb-4">Support</h4>
               <ul className="space-y-2 text-sm">
-                <li><a href="#" className="hover:text-white transition-colors">Help Center</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Contact Support</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">FAQ</a></li>
+                <li>
+                  <a href="#" className="hover:text-white transition-colors">
+                    Help Center
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-white transition-colors">
+                    Contact Support
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-white transition-colors">
+                    FAQ
+                  </a>
+                </li>
               </ul>
             </div>
           </div>
           <div className="border-t border-slate-700 pt-8">
             <p className="text-center text-sm text-slate-400">
-              © 2024 SafeAlert. All rights reserved. In case of emergency in Kenya, always call 999 or +254 20 2222222. SafeAlert is a complementary service.
+              © 2024 SafeAlert. All rights reserved. In case of emergency in
+              Kenya, always call 999 or +254 20 2222222. SafeAlert is a
+              complementary service.
             </p>
           </div>
         </div>
@@ -409,8 +501,12 @@ export default function Index() {
               <X className="w-6 h-6" />
             </button>
 
-            <h2 className="text-2xl font-bold text-slate-900 mb-2">Welcome Back</h2>
-            <p className="text-slate-600 mb-6">Sign in to access SafeAlert features</p>
+            <h2 className="text-2xl font-bold text-slate-900 mb-2">
+              Welcome Back
+            </h2>
+            <p className="text-slate-600 mb-6">
+              Sign in to access SafeAlert features
+            </p>
 
             <form onSubmit={handleSignIn} className="space-y-4">
               <div>
