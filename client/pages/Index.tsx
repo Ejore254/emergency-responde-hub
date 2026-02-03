@@ -231,31 +231,31 @@ export default function Index() {
             </div>
             <div className="bg-gradient-to-br from-emergency-blue-light to-slate-50 rounded-2xl p-8 card-modern border-0">
               <div className="space-y-4">
-                <div className="bg-white rounded-lg p-4 flex items-center gap-3">
+                <div className="bg-white rounded-lg p-4 flex items-center gap-3 cursor-pointer hover:shadow-md transition-shadow">
                   <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
                     <Users className="w-5 h-5 text-emergency-blue" />
                   </div>
                   <div>
-                    <p className="font-semibold text-slate-900">Mom</p>
-                    <p className="text-sm text-slate-600">+1 (555) 123-4567</p>
+                    <p className="font-semibold text-slate-900">Jane Njoki</p>
+                    <p className="text-sm text-slate-600">+254 712 345 678</p>
                   </div>
                 </div>
-                <div className="bg-white rounded-lg p-4 flex items-center gap-3">
+                <div className="bg-white rounded-lg p-4 flex items-center gap-3 cursor-pointer hover:shadow-md transition-shadow">
                   <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
                     <Users className="w-5 h-5 text-emergency-blue" />
                   </div>
                   <div>
-                    <p className="font-semibold text-slate-900">Doctor</p>
-                    <p className="text-sm text-slate-600">+1 (555) 987-6543</p>
+                    <p className="font-semibold text-slate-900">Dr. Kariuki</p>
+                    <p className="text-sm text-slate-600">+254 722 456 789</p>
                   </div>
                 </div>
-                <div className="bg-white rounded-lg p-4 flex items-center gap-3">
+                <div className="bg-white rounded-lg p-4 flex items-center gap-3 cursor-pointer hover:shadow-md transition-shadow">
                   <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
                     <Users className="w-5 h-5 text-emergency-blue" />
                   </div>
                   <div>
-                    <p className="font-semibold text-slate-900">Best Friend</p>
-                    <p className="text-sm text-slate-600">+1 (555) 234-5678</p>
+                    <p className="font-semibold text-slate-900">David Omondi</p>
+                    <p className="text-sm text-slate-600">+254 733 567 890</p>
                   </div>
                 </div>
               </div>
