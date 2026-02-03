@@ -397,6 +397,82 @@ export default function Index() {
           </div>
         </div>
       </footer>
+
+      {/* Sign In Modal */}
+      {showSignIn && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+          <div className="bg-white rounded-2xl shadow-xl max-w-md w-full p-8 relative">
+            <button
+              onClick={() => setShowSignIn(false)}
+              className="absolute top-4 right-4 text-slate-400 hover:text-slate-600"
+            >
+              <X className="w-6 h-6" />
+            </button>
+
+            <h2 className="text-2xl font-bold text-slate-900 mb-2">Welcome Back</h2>
+            <p className="text-slate-600 mb-6">Sign in to access SafeAlert features</p>
+
+            <form onSubmit={handleSignIn} className="space-y-4">
+              <div>
+                <label className="block text-sm font-medium text-slate-700 mb-2">
+                  Email Address
+                </label>
+                <input
+                  type="email"
+                  required
+                  value={userEmail}
+                  onChange={(e) => setUserEmail(e.target.value)}
+                  placeholder="you@example.com"
+                  className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-emergency-blue focus:border-transparent outline-none"
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-slate-700 mb-2">
+                  Password
+                </label>
+                <input
+                  type="password"
+                  placeholder="••••••••"
+                  className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-emergency-blue focus:border-transparent outline-none"
+                />
+              </div>
+
+              <button
+                type="submit"
+                className="w-full bg-emergency-blue text-white py-2 px-4 rounded-lg font-semibold hover:bg-emergency-blue-dark transition-colors"
+              >
+                Sign In
+              </button>
+            </form>
+
+            <div className="mt-6 pt-6 border-t border-slate-200">
+              <p className="text-center text-sm text-slate-600">
+                Don't have an account?{" "}
+                <button className="text-emergency-blue font-semibold hover:underline">
+                  Create one
+                </button>
+              </p>
+            </div>
+
+            <div className="mt-4">
+              <button
+                onClick={() => {
+                  setUserEmail("demo@safealert.ke");
+                  setTimeout(() => {
+                    setIsSignedIn(true);
+                    setShowSignIn(false);
+                    alert("Demo account signed in!");
+                  }, 100);
+                }}
+                className="w-full border-2 border-slate-300 text-slate-700 py-2 px-4 rounded-lg font-semibold hover:bg-slate-50 transition-colors"
+              >
+                Try Demo Account
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
