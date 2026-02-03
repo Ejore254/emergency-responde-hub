@@ -80,6 +80,59 @@ export default function Index() {
     setTimeout(() => setActiveService(null), 1500);
   };
 
+  const handleSignIn = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (userEmail.trim()) {
+      setIsSignedIn(true);
+      setShowSignIn(false);
+      // Show success message
+      alert(`Welcome! Signed in as ${userEmail}`);
+    }
+  };
+
+  const handleSignOut = () => {
+    setIsSignedIn(false);
+    setUserEmail("");
+  };
+
+  const handleShareLocation = () => {
+    setActiveService("location");
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const { latitude, longitude } = position.coords;
+          alert(`Location shared! Coordinates: ${latitude.toFixed(4)}, ${longitude.toFixed(4)}`);
+          setTimeout(() => setActiveService(null), 1500);
+        },
+        (error) => {
+          alert("Location access denied. Please enable location permissions.");
+          setTimeout(() => setActiveService(null), 1500);
+        }
+      );
+    }
+  };
+
+  const handleSetUpContacts = () => {
+    if (!isSignedIn) {
+      setShowSignIn(true);
+      alert("Please sign in to manage your emergency contacts");
+      return;
+    }
+    alert("Contact management panel opened. (Feature in development)");
+  };
+
+  const handleGetStarted = () => {
+    if (!isSignedIn) {
+      setShowSignIn(true);
+    } else {
+      alert("Getting started with SafeAlert! Check out the features below.");
+    }
+  };
+
+  const handleDownloadApp = (platform: string) => {
+    alert(`Redirecting to download SafeAlert for ${platform}...\n\n(In production, this would link to the app store)`);
+  };
+
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
