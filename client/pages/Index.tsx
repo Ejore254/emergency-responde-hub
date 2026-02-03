@@ -1,8 +1,12 @@
-import { Phone, AlertCircle, MapPin, Users, Clock, Shield, Heart, Zap } from "lucide-react";
+import { Phone, AlertCircle, MapPin, Users, Clock, Shield, Heart, Zap, X } from "lucide-react";
 import { useState } from "react";
 
 export default function Index() {
   const [activeService, setActiveService] = useState<string | null>(null);
+  const [showSignIn, setShowSignIn] = useState(false);
+  const [isSignedIn, setIsSignedIn] = useState(false);
+  const [userEmail, setUserEmail] = useState("");
+  const [showShareModal, setShowShareModal] = useState(false);
 
   const emergencyServices = [
     {
