@@ -21,6 +21,19 @@ export default function Index() {
   const [callNotes, setCallNotes] = useState("");
   const [callDuration, setCallDuration] = useState(0);
 
+  // Call timer effect
+  useEffect(() => {
+    if (!ongoingCall) return;
+
+    let elapsed = 0;
+    const timer = setInterval(() => {
+      elapsed++;
+      setCallDuration(elapsed);
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, [ongoingCall]);
+
   const emergencyServices = [
     {
       id: "ambulance",
