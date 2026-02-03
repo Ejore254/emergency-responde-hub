@@ -516,6 +516,80 @@ export default function Index() {
         </div>
       </footer>
 
+      {/* Active Call Interface */}
+      {ongoingCall && (
+        <div className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50 p-4">
+          <div className="bg-white rounded-3xl shadow-2xl max-w-md w-full overflow-hidden">
+            {/* Call Header */}
+            <div className="bg-gradient-to-r from-emergency-red to-orange-600 px-6 py-8 text-white">
+              <div className="text-center">
+                <div className="inline-flex items-center justify-center w-16 h-16 bg-white/20 rounded-full mb-4">
+                  <Phone className="w-8 h-8 text-white animate-pulse" />
+                </div>
+                <h2 className="text-2xl font-bold mb-2">Emergency Call Active</h2>
+                <p className="text-white/90 mb-4">
+                  {emergencyServices.find((s) => s.id === ongoingCall)?.title}
+                </p>
+                <div className="text-4xl font-mono font-bold">
+                  {formatCallDuration(callDuration)}
+                </div>
+              </div>
+            </div>
+
+            {/* Call Details */}
+            <div className="p-6 space-y-4">
+              {/* Emergency Number */}
+              <div className="bg-slate-50 rounded-lg p-4 border border-slate-200">
+                <p className="text-xs uppercase tracking-wide text-slate-600 font-semibold mb-2">
+                  Emergency Number
+                </p>
+                <p className="text-lg font-bold text-slate-900">
+                  {emergencyServices.find((s) => s.id === ongoingCall)?.number}
+                </p>
+              </div>
+
+              {/* Call Notes Textbox */}
+              <div>
+                <label className="block text-xs uppercase tracking-wide text-slate-600 font-semibold mb-2">
+                  Call Information
+                </label>
+                <textarea
+                  value={callNotes}
+                  onChange={(e) => setCallNotes(e.target.value)}
+                  placeholder="Add notes about the emergency (optional)..."
+                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-emergency-red focus:border-transparent outline-none resize-none"
+                  rows={4}
+                />
+              </div>
+
+              {/* Call Status */}
+              <div className="bg-green-50 border border-green-200 rounded-lg p-3">
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                  <p className="text-sm text-green-700 font-medium">
+                    Call Connected & Recording
+                  </p>
+                </div>
+              </div>
+
+              {/* End Call Button */}
+              <button
+                onClick={handleEndCall}
+                className="w-full bg-red-500 hover:bg-red-600 text-white py-3 px-4 rounded-lg font-semibold transition-colors flex items-center justify-center gap-2"
+              >
+                <Phone className="w-5 h-5" />
+                End Call
+              </button>
+
+              {/* Info Text */}
+              <p className="text-xs text-slate-600 text-center">
+                Stay on the line. Help is being sent to your location.
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Sign In Modal */}
       {showSignIn && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
