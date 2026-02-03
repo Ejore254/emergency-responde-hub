@@ -342,10 +342,10 @@ export default function Index() {
             Get peace of mind knowing help is always just one tap away. Download SafeAlert today.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-white text-emergency-blue px-8 py-3 rounded-lg font-semibold hover:bg-slate-100 transition-colors">
+            <button onClick={() => handleDownloadApp("iOS")} className="bg-white text-emergency-blue px-8 py-3 rounded-lg font-semibold hover:bg-slate-100 transition-colors">
               Download iOS
             </button>
-            <button className="bg-white text-emergency-blue px-8 py-3 rounded-lg font-semibold hover:bg-slate-100 transition-colors">
+            <button onClick={() => handleDownloadApp("Android")} className="bg-white text-emergency-blue px-8 py-3 rounded-lg font-semibold hover:bg-slate-100 transition-colors">
               Download Android
             </button>
           </div>
