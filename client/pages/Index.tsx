@@ -1,13 +1,4 @@
-import {
-  Phone,
-  AlertCircle,
-  MapPin,
-  Users,
-  Clock,
-  Shield,
-  Heart,
-  Zap,
-} from "lucide-react";
+import { Phone, AlertCircle, MapPin, Users, Clock, Shield, Heart, Zap } from "lucide-react";
 import { useState } from "react";
 
 export default function Index() {
@@ -16,30 +7,33 @@ export default function Index() {
   const emergencyServices = [
     {
       id: "ambulance",
-      title: "Medical Emergency",
+      title: "Ambulance (Medical)",
       description: "Call for medical assistance",
       icon: Heart,
       color: "bg-red-50",
       textColor: "text-red-600",
       buttonColor: "bg-red-500 hover:bg-red-600",
+      number: "+254 20 2245000",
     },
     {
       id: "fire",
-      title: "Fire & Rescue",
+      title: "Fire Brigade",
       description: "Report fire or rescue needed",
       icon: Zap,
       color: "bg-orange-50",
       textColor: "text-orange-600",
       buttonColor: "bg-orange-500 hover:bg-orange-600",
+      number: "+254 20 2222222",
     },
     {
       id: "police",
-      title: "Police",
+      title: "Police Emergency",
       description: "Report crime or safety threat",
       icon: Shield,
       color: "bg-blue-50",
       textColor: "text-blue-600",
       buttonColor: "bg-blue-500 hover:bg-blue-600",
+      number: "+254 20 2222222",
     },
     {
       id: "location",
@@ -49,6 +43,7 @@ export default function Index() {
       color: "bg-green-50",
       textColor: "text-green-600",
       buttonColor: "bg-green-500 hover:bg-green-600",
+      number: "Share",
     },
   ];
 
@@ -93,24 +88,9 @@ export default function Index() {
             <span className="text-xl font-bold text-slate-900">SafeAlert</span>
           </div>
           <nav className="hidden md:flex items-center gap-8">
-            <a
-              href="#"
-              className="text-slate-600 hover:text-slate-900 font-medium"
-            >
-              Services
-            </a>
-            <a
-              href="#"
-              className="text-slate-600 hover:text-slate-900 font-medium"
-            >
-              Resources
-            </a>
-            <a
-              href="#"
-              className="text-slate-600 hover:text-slate-900 font-medium"
-            >
-              Contacts
-            </a>
+            <a href="#" className="text-slate-600 hover:text-slate-900 font-medium">Services</a>
+            <a href="#" className="text-slate-600 hover:text-slate-900 font-medium">Resources</a>
+            <a href="#" className="text-slate-600 hover:text-slate-900 font-medium">Contacts</a>
             <button className="btn-primary">Sign In</button>
           </nav>
         </div>
@@ -124,8 +104,7 @@ export default function Index() {
               Emergency Help at Your Fingertips
             </h1>
             <p className="text-lg md:text-xl text-slate-600 max-w-2xl mx-auto mb-8">
-              Fast, reliable access to emergency services and support. Get help
-              when you need it most with just a tap.
+              Fast, reliable access to emergency services and support. Get help when you need it most with just a tap.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button className="btn-primary text-lg py-4 px-8 flex items-center justify-center gap-2">
@@ -158,9 +137,7 @@ export default function Index() {
                       : ""
                   }`}
                 >
-                  <div
-                    className={`${service.color} w-14 h-14 rounded-lg flex items-center justify-center mb-4`}
-                  >
+                  <div className={`${service.color} w-14 h-14 rounded-lg flex items-center justify-center mb-4`}>
                     <Icon className={`w-7 h-7 ${service.textColor}`} />
                   </div>
                   <h3 className="font-semibold text-slate-900 mb-2">
@@ -186,10 +163,11 @@ export default function Index() {
       <section className="py-16 md:py-20 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="mb-4 text-slate-900">Why Choose SafeAlert</h2>
+            <h2 className="mb-4 text-slate-900">
+              Why Choose SafeAlert
+            </h2>
             <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-              Designed with your safety in mind, providing reliable emergency
-              support
+              Designed with your safety in mind, providing reliable emergency support
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -203,7 +181,9 @@ export default function Index() {
                   <h3 className="text-lg font-semibold text-slate-900 mb-2">
                     {feature.title}
                   </h3>
-                  <p className="text-slate-600">{feature.description}</p>
+                  <p className="text-slate-600">
+                    {feature.description}
+                  </p>
                 </div>
               );
             })}
@@ -216,18 +196,14 @@ export default function Index() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="mb-6 text-slate-900">Manage Emergency Contacts</h2>
+              <h2 className="mb-6 text-slate-900">
+                Manage Emergency Contacts
+              </h2>
               <p className="text-lg text-slate-600 mb-6">
-                Keep your trusted contacts updated and instantly reachable when
-                you need them. Set up your emergency network in seconds.
+                Keep your trusted contacts updated and instantly reachable when you need them. Set up your emergency network in seconds.
               </p>
               <ul className="space-y-4 mb-8">
-                {[
-                  "Add up to 10 emergency contacts",
-                  "One-tap calling and messaging",
-                  "Auto-share location with contacts",
-                  "24/7 availability",
-                ].map((item, index) => (
+                {["Add up to 10 emergency contacts", "One-tap calling and messaging", "Auto-share location with contacts", "24/7 availability"].map((item, index) => (
                   <li key={index} className="flex items-center gap-3">
                     <div className="w-6 h-6 bg-emergency-blue rounded-full flex items-center justify-center flex-shrink-0">
                       <span className="text-white text-sm font-bold">✓</span>
@@ -236,7 +212,9 @@ export default function Index() {
                   </li>
                 ))}
               </ul>
-              <button className="btn-primary">Set Up Contacts Now</button>
+              <button className="btn-primary">
+                Set Up Contacts Now
+              </button>
             </div>
             <div className="bg-gradient-to-br from-emergency-blue-light to-slate-50 rounded-2xl p-8 card-modern border-0">
               <div className="space-y-4">
@@ -276,10 +254,11 @@ export default function Index() {
       {/* CTA Section */}
       <section className="py-16 md:py-20 bg-gradient-to-r from-emergency-blue to-emergency-blue-dark">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-white mb-6">Always Ready for Emergencies</h2>
+          <h2 className="text-white mb-6">
+            Always Ready for Emergencies
+          </h2>
           <p className="text-xl text-blue-100 max-w-2xl mx-auto mb-8">
-            Get peace of mind knowing help is always just one tap away. Download
-            SafeAlert today.
+            Get peace of mind knowing help is always just one tap away. Download SafeAlert today.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button className="bg-white text-emergency-blue px-8 py-3 rounded-lg font-semibold hover:bg-slate-100 transition-colors">
@@ -303,75 +282,36 @@ export default function Index() {
                 </div>
                 <span className="text-white font-bold">SafeAlert</span>
               </div>
-              <p className="text-sm">
-                Your trusted emergency response partner.
-              </p>
+              <p className="text-sm">Your trusted emergency response partner.</p>
             </div>
             <div>
               <h4 className="text-white font-semibold mb-4">Services</h4>
               <ul className="space-y-2 text-sm">
-                <li>
-                  <a href="#" className="hover:text-white transition-colors">
-                    Emergency Call
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-white transition-colors">
-                    Location Share
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-white transition-colors">
-                    Contact Manager
-                  </a>
-                </li>
+                <li><a href="#" className="hover:text-white transition-colors">Emergency Call</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Location Share</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Contact Manager</a></li>
               </ul>
             </div>
             <div>
               <h4 className="text-white font-semibold mb-4">Company</h4>
               <ul className="space-y-2 text-sm">
-                <li>
-                  <a href="#" className="hover:text-white transition-colors">
-                    About Us
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-white transition-colors">
-                    Privacy Policy
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-white transition-colors">
-                    Terms of Service
-                  </a>
-                </li>
+                <li><a href="#" className="hover:text-white transition-colors">About Us</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Privacy Policy</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Terms of Service</a></li>
               </ul>
             </div>
             <div>
               <h4 className="text-white font-semibold mb-4">Support</h4>
               <ul className="space-y-2 text-sm">
-                <li>
-                  <a href="#" className="hover:text-white transition-colors">
-                    Help Center
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-white transition-colors">
-                    Contact Support
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-white transition-colors">
-                    FAQ
-                  </a>
-                </li>
+                <li><a href="#" className="hover:text-white transition-colors">Help Center</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Contact Support</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">FAQ</a></li>
               </ul>
             </div>
           </div>
           <div className="border-t border-slate-700 pt-8">
             <p className="text-center text-sm text-slate-400">
-              © 2024 SafeAlert. All rights reserved. In case of emergency,
-              always call your local emergency number (911 in the US).
+              © 2024 SafeAlert. All rights reserved. In case of emergency, always call your local emergency number (911 in the US).
             </p>
           </div>
         </div>
