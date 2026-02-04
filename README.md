@@ -97,18 +97,17 @@ SafeAlert is a modern, production-ready web application designed to provide quic
 
 ```bash
 # Development
-pnpm dev              # Start dev server with hot reload (client + server)
+pnpm dev              # Start dev server (http://localhost:3000)
 
 # Production
-pnpm build            # Build both client and server for production
-pnpm build:client     # Build frontend only
-pnpm build:server     # Build backend only
+pnpm build            # Build for production
 pnpm start            # Start production server
 
 # Quality
+pnpm lint             # Run ESLint
+pnpm type-check       # Check TypeScript types
+pnpm format           # Format code with Prettier
 pnpm test             # Run tests with Vitest
-pnpm typecheck        # Check TypeScript types
-pnpm format.fix       # Format code with Prettier
 ```
 
 ## Design System 🎨
