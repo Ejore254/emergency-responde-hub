@@ -2,7 +2,7 @@
 
 > Fast, reliable emergency response at your fingertips
 
-SafeAlert is a modern, production-ready web application designed to provide quick and easy access to emergency services and support when you need it most. Built with React, TypeScript, and TailwindCSS, SafeAlert combines an intuitive interface with powerful emergency management features.
+SafeAlert is a modern, production-ready web application designed to provide quick and easy access to emergency services and support when you need it most. Built with Next.js, TypeScript, and TailwindCSS, SafeAlert combines an intuitive interface with powerful emergency management features.
 
 ## Features ✨
 
