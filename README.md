@@ -179,11 +179,11 @@ See `AGENTS.md` for detailed backend setup instructions.
 
 ## Performance 🚄
 
-- **Vite** - Instant server start and lightning-fast HMR
-- **React Router SPA** - Client-side routing with no full page reloads
+- **Next.js** - Optimized build and lightning-fast server
+- **App Router** - File-based routing with automatic code splitting
 - **TailwindCSS** - Minimal CSS with PurgeCSS
-- **Code Splitting** - Automatic route-based splitting
-- **Image Optimization** - Use optimized formats
+- **Image Optimization** - Next.js native image optimization
+- **Streaming** - Progressive rendering for faster perceived performance
 
 ## Responsive Design 📱
 
