@@ -18,15 +18,14 @@ SafeAlert is a modern, production-ready web application designed to provide quic
 
 ## Tech Stack 🛠️
 
-- **Frontend**: React 18 + React Router 6 (SPA mode)
+- **Frontend & Backend**: Next.js 15 (App Router)
 - **Language**: TypeScript
 - **Styling**: TailwindCSS 3 + Custom Components
-- **Build Tool**: Vite
-- **Backend**: Express.js (integrated)
+- **UI Components**: Radix UI
 - **Icons**: Lucide React
-- **Data Fetching**: TanStack React Query
-- **Testing**: Vitest
+- **Notifications**: Sonner + React Toaster
 - **Package Manager**: pnpm
+- **Deployment**: Vercel (native support)
 
 ## Project Structure 📁
 
