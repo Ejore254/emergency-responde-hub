@@ -214,6 +214,7 @@ pnpm start
 SafeAlert is built with Next.js and has **zero-configuration deployment** on Vercel:
 
 #### Option 1: Quick Deploy with GitHub
+
 1. Go to https://vercel.com
 2. Click "New Project"
 3. Select your GitHub repo
@@ -221,6 +222,7 @@ SafeAlert is built with Next.js and has **zero-configuration deployment** on Ver
 5. ✅ Done! Your app is live
 
 #### Option 2: Using Vercel CLI
+
 ```bash
 npm install -g vercel
 vercel login
@@ -228,12 +230,14 @@ vercel
 ```
 
 #### Option 3: Manual Import
+
 1. Push code to GitHub
 2. Connect repo in Vercel dashboard
 3. Vercel auto-detects Next.js
 4. Deploy automatically
 
 ### Add Custom Domain
+
 ```
 Vercel Dashboard → Project Settings → Domains → Add
 ```
