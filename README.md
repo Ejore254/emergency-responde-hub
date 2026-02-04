@@ -209,28 +209,44 @@ pnpm build
 pnpm start
 ```
 
-### Hosting Options
+### Deploy to Vercel (Recommended) ⚡
 
-#### Netlify
+SafeAlert is built with Next.js and has **zero-configuration deployment** on Vercel:
 
-1. Connect your repo in Netlify dashboard
-2. Set build command: `pnpm build`
-3. Set publish directory: `dist/spa`
-4. Deploy!
+#### Option 1: Quick Deploy with GitHub
+1. Go to https://vercel.com
+2. Click "New Project"
+3. Select your GitHub repo
+4. Click "Deploy"
+5. ✅ Done! Your app is live
 
-#### Vercel
+#### Option 2: Using Vercel CLI
+```bash
+npm install -g vercel
+vercel login
+vercel
+```
 
-1. Import project in Vercel dashboard
-2. Auto-detects build settings
-3. Deploy with one click!
+#### Option 3: Manual Import
+1. Push code to GitHub
+2. Connect repo in Vercel dashboard
+3. Vercel auto-detects Next.js
+4. Deploy automatically
 
-#### Docker
+### Add Custom Domain
+```
+Vercel Dashboard → Project Settings → Domains → Add
+```
+
+### Docker Deployment
 
 ```dockerfile
 FROM node:18-alpine
 WORKDIR /app
 COPY . .
 RUN pnpm install && pnpm build
+EXPOSE 3000
+ENV NODE_ENV=production
 CMD ["pnpm", "start"]
 ```
 
