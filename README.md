@@ -30,27 +30,33 @@ SafeAlert is a modern, production-ready web application designed to provide quic
 ## Project Structure 📁
 
 ```
-├── client/                      # React SPA frontend
-│   ├── pages/
-│   │   ├── Index.tsx           # Homepage - Emergency services & features
-│   │   └── NotFound.tsx        # 404 page
+├── app/                         # Next.js App Router
+│   ├── page.tsx                # Homepage - Emergency services & features
+│   ├── layout.tsx              # Root layout with providers
+│   ├── not-found.tsx           # 404 page handler
+│   ├── api/                    # Next.js API routes
+│   │   └── demo/
+│   │       └── route.ts        # Example API endpoint
+│   └── globals.css             # Global styles & CSS variables
+│
+├── client/                      # Shared React components
 │   ├── components/
 │   │   └── ui/                 # Pre-built UI components (Radix UI)
-│   ├── App.tsx                 # App entry point & SPA routing
-│   ├── global.css              # TailwindCSS theming & global styles
-│   └── vite-env.d.ts          # Vite environment types
+│   ├── hooks/                  # Custom React hooks
+│   ├── lib/                    # Utility functions
+│   └── global.css              # (Legacy - use app/globals.css)
 │
-├── server/                      # Express API backend
-│   ├── index.ts               # Server setup & route configuration
-│   └── routes/                # API endpoint handlers
+├── shared/                      # Shared types & interfaces
+│   └── api.ts                  # API type definitions
 │
-├── shared/                      # Shared types between client & server
-│   └── api.ts                 # Shared API interfaces
+├── public/                      # Static assets
+│   └── robots.txt
 │
+├── next.config.js             # Next.js configuration
 ├── tailwind.config.ts         # TailwindCSS configuration
-├── vite.config.ts             # Vite client config
-├── vite.config.server.ts      # Vite server config
 ├── tsconfig.json              # TypeScript configuration
+├── vercel.json                # Vercel deployment config
+├── .env.local                 # Environment variables
 └── package.json               # Project dependencies
 ```
 
